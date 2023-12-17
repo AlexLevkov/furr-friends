@@ -40,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/AlexLevkov/furrFriends/issues"
   },
-  "homepage": "https://github.com/AlexLevkov/furrFriends#readme"
+  "homepage": "https://github.com/AlexLevkov/furrFriends#readme",
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8"
+  }
 }
