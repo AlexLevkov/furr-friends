@@ -1,0 +1,144 @@
+// header
+.app-header {
+  background-color: $clr3;
+  caret-color: transparent;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 7vh;
+  align-items: center;
+  color: $clr1;
+  font-family: "Noto Serif", serif;
+  // font-family: title;
+
+  .logo {
+    font-size: 30px;
+    margin-right: 20px;
+    font-family: awesome;
+    position: absolute;
+    animation: wave 7s infinite;
+    transform-origin: 50% 100%;
+    &::before {
+      content: "\f1b0";
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(12deg);
+    }
+    20% {
+      transform: rotate(-12deg);
+    }
+    30% {
+      transform: rotate(12deg);
+    }
+    40% {
+      transform: rotate(-12deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .logo-text {
+    font-size: 30px;
+    font-family: Pacifico;
+    margin-left: 30px;
+  }
+
+  nav {
+    height: 100%;
+  }
+  a {
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    line-height: 7vh;
+    font-size: 20px;
+  }
+  button {
+    font-size: 20px;
+    padding: 0;
+    font-family: "Noto Serif", serif;
+  }
+
+  .router-link {
+    &:focus,
+    &:hover {
+      // font-weight: bold;
+      color: white;
+      transition: 0.3s;
+    }
+  }
+
+  .white-underline::before {
+    background-color: white;
+  }
+
+  .user-login {
+    display: flex;
+    gap: 5px;
+  }
+}
+.right-side-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-nav-humburger {
+  display: none;
+  font-size: 35px;
+}
+.header-nav-wide {
+  display: flex;
+  gap: 15px;
+}
+
+.user-name-avatar::before {
+  font-family: awesome;
+  margin-right: 5px;
+  content: "\f2bd";
+}
+
+@media screen and (max-width: 600px) {
+  .right-side-nav {
+    display: none;
+  }
+  .header-nav-humburger {
+    display: block;
+  }
+  .header-container {
+    height: 10vh;
+    flex-direction: row-reverse;
+    a {
+      line-height: 10vh;
+    }
+  }
+  .right-side-nav-display {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: $clr3;
+    width: 40vw;
+    height: 30vh;
+    border-radius: 0 0 0 8px;
+    top: 10%;
+    right: 0;
+    z-index: 1;
+    gap: 0;
+    a {
+      border-top: $clr1 solid 2px;
+      width: 100%;
+    }
+  }
+}

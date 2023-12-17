@@ -1,0 +1,22 @@
+// footer
+.app-footer {
+  background-color: $clr3;
+  height: 7vh;
+  font-family: "Noto Serif", serif;
+}
+footer {
+  background-color: $clr3;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  // font-family: title;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,79 @@
+// arrow dropdown
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: $clr5;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
+}
+
+// button dropdown
+
+.el-dropdown {
+  vertical-align: top;
+}
+
+.el-dropdown + .el-dropdown {
+  margin-left: 15px;
+}
+
+.el-icon-arrow-down {
+  font-size: 12px;
+}
+
+.el-button--primary {
+  margin-top: 5px;
+  margin-right: 5px;
+  background-color: $clr5;
+  &:hover {
+    background-color: white;
+    color: $clr5;
+  }
+  border-color: $clr5;
+}
+
+.el-button--success {
+  background-color: $clr5;
+  border-color: $clr1;
+  // margin-bottom: 15px;
+}
+
+.el-button.is-circle {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: $clr5;
+}
+
+.el-select-dropdown__item.selected {
+  color: $clr5;
+  font-weight: 700;
+}
+
+.el-radio {
+  margin: 0px 10px;
+}
+
+.el-textarea__inner {
+  width: 40%;
+  margin: 10px;
+}
+
+.el-button--success:hover {
+  background: $clr3;
+  border-color: $clr3;
+  transition: 0.4s;
+}
+// $clr3
+
+.el-button + .el-button {
+  margin: 0;
+}
+
+.el-button.is-round {
+  // border-radius: 20px;
+  padding: 12px 15px;
+}

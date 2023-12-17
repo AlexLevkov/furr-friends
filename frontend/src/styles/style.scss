@@ -1,0 +1,43 @@
+//SETUP
+@import '~hover.css/scss/hover';
+@import 'setup/typography';
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'setup/functions';
+@import 'setup/element-ui';
+
+// BASICS
+@import 'basics/helpers';
+@import 'basics/base';
+@import 'basics/layout';
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+// COMPONENTS
+@import 'cmps/app-header';
+@import 'cmps/app-footer';
+@import 'cmps/user';
+@import 'cmps/pet-details';
+@import 'cmps/pet-preview';
+@import 'cmps/user-details';
+@import 'cmps/app-about';
+@import 'cmps/pet-app';
+@import 'cmps/app-home';
+@import 'cmps/app-filter';
+@import 'cmps/pet-list'
+
+
+
+
+
+// .flach{
+//     height: 100px;
+//     width: 100px;
+//     background-color: whitesmoke;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     border-radius: 0 0 0 100%;
+//     opacity: 0.3;    
+// }
+
+

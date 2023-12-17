@@ -1,0 +1,153 @@
+.pet-preview-container {
+    //  display: flex;
+    //  flex-wrap: wrap;
+    //  gap: 10px;
+
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    display: grid;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.pet-card {
+    font-family: cursive;
+    height: 350px;
+
+    text-align: center;
+    border-radius: 7px 7px 0 0;
+    position: relative;
+    &:hover {
+        opacity: 0.9;
+        cursor: pointer;
+        .pet-card-info {
+            background-color: $clr3;
+            color: $clr1;
+            opacity: 0.85;
+            transition: 0.3s;
+        }
+        .pet-gender-male {
+            color: $clr1;
+        }
+        .pet-gender-female {
+            color: $clr1;
+        }
+    }
+
+    button {
+        border-radius: 2.5em;
+        font-weight: 600;
+        font-size: 1.1em;
+        &:hover {
+            background-color: $clr4;
+            color: $clr1;
+        }
+    }
+    h3 {
+        margin-bottom: 3%;
+    }
+}
+
+.pet-card-img-container {
+    @include aspect-ratio(3, 4);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 7px;
+    height: 80%;
+}
+
+.pet-likes-cnt {
+    font-family: cursive;
+}
+
+.pet-edit-container {
+    font-family: cursive;
+    padding: 0px 10px;
+    font-size: 15px;
+    position: relative;
+    top: 14%;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    font-weight: bolder;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.pet-card-info {
+    position: absolute;
+    // opacity: 0.6;
+    bottom: 0;
+    width: 100%;
+    top: 60%;
+    border-radius: 50% 50% 7px 7px;
+
+    background-color: rgba($color: darken($clr1, 5%), $alpha: 0.5);
+    // opacity: 0.75;
+}
+.see-more {
+    align-self: flex-end;
+}
+
+.pet-card-info-extra {
+    font-family: cursive;
+    padding: 0 10px;
+    font-size: 15px;
+    position: relative;
+    top: 14%;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    font-weight: bolder;
+    button {
+        // align-self: flex-end;
+        padding: 0;
+        font-family: cursive;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.pet-card-age-gender {
+    padding: 0 10px;
+    font-size: 15px;
+    position: relative;
+    top: 14%;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    span {
+        font-size: 20px;
+    }
+    .pet-gender-male {
+        font-size: 30px;
+        color: #2196f3;
+    }
+    .pet-gender-female {
+        font-size: 30px;
+        color: #ea7085;
+    }
+}
+
+.pet-likes-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    /* align-content: center; */
+    align-items: end;
+
+    span {
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: #ffffff;
+        -webkit-text-fill-color: #000000;
+    }
+}

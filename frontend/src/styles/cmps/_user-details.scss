@@ -1,0 +1,151 @@
+//
+
+.user-info-container {
+  display: flex;
+  gap: 5%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.user-img {
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.add-pet-form {
+  background-color: #f5f5f5;
+  width: 30%;
+  display: flex;
+  height: 65%;
+  flex-direction: column;
+  /* align-content: space-around; */
+  /* align-items: center; */
+  justify-content: center;
+  border-radius: 8px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  align-items: stretch;
+
+  // margin-top: 5px;
+  // display: flex;
+  //  flex-direction: column;
+  //  width: 90%;
+  //  gap:5px
+}
+
+.pet-form-container {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  align-items: flex-start;
+}
+
+.modal-close {
+  display: none;
+}
+
+
+
+
+
+// pet image
+
+.img-request {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.order-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin: 10px;
+}
+
+.order-details {
+  text-align: justify;
+  text-justify: inter-word;
+  flex: 1;
+}
+
+.pet-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px 10px;
+  // width:100%
+}
+
+.pet-name {
+  width: 217px;
+}
+
+.pet-box {
+  align-self: baseline;
+  margin: 0 20px 10px;
+}
+
+.save-btn {
+  width: 30%;
+  align-self: center;
+}
+
+.pet-order-p {
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.request-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 5px;
+}
+
+.add-pet {
+  margin: 5px;
+}
+
+.action-btn {
+  background-color: $clr2;
+  // background-color: $clr3;
+  // background-color: $clr4;
+  // background-color: $clr5;
+}
+
+@media screen and (max-width: 600px) {
+  .user-img {
+    margin: 0;
+  }
+  .user-info-container {
+    flex-direction: column;
+  }
+  .user-avatar {
+    width: 30%;
+  }
+  .add-pet-form {
+    width: 90vw;
+    height: 90vh;
+  }
+
+  .request-action-container {
+    flex-direction: column;
+  }
+
+  .order-container {
+    flex-direction: column;
+  }
+}

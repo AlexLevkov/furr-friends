@@ -1,0 +1,22 @@
+.pet-app-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.random-container {
+  width: 90px;
+}
+
+.random-img {
+  width: 90px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pet-app-container {
+    flex-direction: column;
+  }
+}

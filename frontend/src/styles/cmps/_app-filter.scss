@@ -1,0 +1,19 @@
+.pet-app-filter{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    gap: 10px;
+}
+.pet-app-list{
+    flex-basis: 80%;
+}
+
+@media screen and (max-width: 600px){
+    .pet-app-filter{
+        label{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

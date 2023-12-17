@@ -1,0 +1,25 @@
+.main-layout{
+    
+    display: grid;
+    grid-template-columns: 
+        minmax(2rem, 1fr) 
+        minmax(auto, 1200px) 
+        minmax(2rem, 1fr);
+
+    > * {
+        grid-column: 2;
+    }
+    > .full {
+        grid-column: 1 / -1;
+    }
+    grid-template-rows: max-content;
+}
+
+@media screen and (max-width: 600px){
+    .main-layout{
+        grid-template-columns: 
+        minmax(1rem, 1fr) 
+        minmax(auto, 380px) 
+        minmax(1rem, 1fr);
+    }
+}
