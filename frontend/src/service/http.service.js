@@ -3,7 +3,9 @@ import { router } from "@/router";
 
 const BASE_URL = //process.env.NODE_ENV === 'production'
   // ? '/api/' :
-  "http://localhost:3030/api/";
+  // "http://localhost:3030/api/";
+  // "http://localhost:2000/api/";
+  "https://central-server-81cq.onrender.com/";
 
 var axios = Axios.create({
   // withCredentials: true,
@@ -32,7 +34,7 @@ async function ajax(endpoint, method = "GET", data = null) {
       data,
       params: method === "GET" ? data : null,
     });
-    // console.log(' res.data:', res.data)
+    console.log(" res.data:", res.data);
     return res.data;
   } catch (err) {
     console.log(

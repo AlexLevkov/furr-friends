@@ -48,6 +48,7 @@ export const orderStore = {
       },
       async saveOrder(state, payload) {
          try {
+            console.log('saveOrder action')
             // validation variables
             const userId = payload.orderToSave.orderBy._id
             const petId = payload.orderToSave.orderFor._id

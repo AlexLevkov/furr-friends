@@ -161,6 +161,7 @@
           });
       },
       login() {
+        console.log("login");
         const selectedUser = this.users.find(
           (user) => user.username === this.selectedUsername
         );
@@ -183,7 +184,7 @@
       },
       logout() {
         this.$store.dispatch({ type: "logout" }).then(() => {
-          this.$router.push({ name: "home" });
+          if (this.$route.name !== "home") this.$router.push({ name: "home" });
         });
       },
       closeModal() {

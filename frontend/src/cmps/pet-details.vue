@@ -234,6 +234,7 @@
           this.$store // update store
             .dispatch({ type: "saveOrder", orderToSave })
             .then((savedOrder) => {
+              console.log("savedOrder:", savedOrder);
               // const petName = savedOrder.orderFor.name;
               const message =
                 savedOrder.msg || `Your adoption request has been sent`;
@@ -247,7 +248,7 @@
               const data = {
                 type: "update-orders",
               };
-              socketService.emit("order-msg", data);
+              // socketService.emit("order-msg", data);
             })
             .catch((err) => {
               console.log("err:", err);

@@ -37,48 +37,48 @@
 </template>
 
 <script>
-import ToggleFavorite from "@/cmps/heart-animation/ToggleFavorite.vue";
-export default {
-  name: "pet-preview",
-  components: {
-    ToggleFavorite,
-  },
-  props: {
-    pet: {
-      type: Object,
+  import ToggleFavorite from "@/cmps/heart-animation/ToggleFavorite.vue";
+  export default {
+    name: "pet-preview",
+    components: {
+      ToggleFavorite,
     },
-    isUserPre: {
-      type: Boolean,
-      default: false,
+    props: {
+      pet: {
+        type: Object,
+      },
+      isUserPre: {
+        type: Boolean,
+        default: false,
+      },
     },
-  },
-  created() {},
-  data() {
-    return {};
-  },
-  computed: {
-    petImg() {
-      if (this.pet.imgUrl) {
-        return this.pet.imgUrl[0];
-      } else {
-        return "cat-logo.gif";
-      }
+    created() {},
+    data() {
+      return {};
     },
-  },
-  methods: {
-    showPetDetails() {
-      this.$router.push({
-        name: "pet-details",
-        params: { petId: this.pet._id },
-      });
+    computed: {
+      petImg() {
+        if (this.pet.imgUrl) {
+          return this.pet.imgUrl[0];
+        } else {
+          return "cat-logo.gif";
+        }
+      },
     },
-    removePet() {
-      this.$store.dispatch({ type: "removePet", petId: this.pet._id });
+    methods: {
+      showPetDetails() {
+        this.$router.push({
+          name: "pet-details",
+          params: { petId: this.pet._id },
+        });
+      },
+      removePet() {
+        this.$store.dispatch({ type: "removePet", petId: this.pet._id });
+      },
+      editPet() {
+        const petToEdit = JSON.parse(JSON.stringify(this.pet));
+        this.$emit("edit", petToEdit);
+      },
     },
-    editPet() {
-      const petToEdit = JSON.parse(JSON.stringify(this.pet));
-      this.$emit("edit", petToEdit);
-    },
-  },
-};
+  };
 </script>

@@ -58,7 +58,7 @@
     </label>
     <label for="random">Find me a random pet:</label>
 
-     <div class="hvr-icon-spin random-container">
+    <div class="hvr-icon-spin random-container">
       <img
         id="random"
         @click="randomPet"
