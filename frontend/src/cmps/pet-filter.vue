@@ -30,6 +30,7 @@
         <el-option :label="'Cat'" :value="'cat'">Cat</el-option>
         <el-option :label="'Fish'" :value="'fish'">Fish</el-option>
         <el-option :label="'Rabbit'" :value="'rabbit'">Rabbit</el-option>
+        <el-option :label="'Parrot'" :value="'parrot'">Parrot</el-option>
       </el-select>
     </label>
     <label>
@@ -95,11 +96,15 @@
           size: "all",
           randomId: null,
         },
+        filteredUserNames: ["ARC", "P2S", "A.SOS"],
       };
     },
     computed: {
       users() {
-        return this.$store.getters.users;
+        return this.$store.getters.users.filter((user) => {
+          return this.filteredUserNames.includes(user.username);
+          //return user.username === "ARC";
+        });
       },
     },
     methods: {
@@ -107,7 +112,6 @@
         this.$emit("filterBy", this.filter);
       },
       setFilter() {
-        console.log("setFilter");
         const filterCopy = JSON.parse(JSON.stringify(this.filter));
         this.$store.commit({ type: "setFilterBy", filterCopy });
       },

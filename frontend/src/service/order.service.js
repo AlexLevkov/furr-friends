@@ -29,7 +29,6 @@ async function save(order) {
     // return storageService.put('order', order)
     return (order = await httpService.put(`order`, order));
   } else {
-    console.log("else");
     // return storageService.post('order', order)
     return (order = await httpService.post(`order`, order));
   }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { petStore } from './pet.store.js'
-import { userStore } from './user.srote.js'
+import { userStore } from './user.store.js'
 import { orderStore } from './order.store.js'
 
 Vue.use(Vuex)

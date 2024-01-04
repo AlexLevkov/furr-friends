@@ -48,7 +48,6 @@ export const userStore = {
         commit({ type: "toggleUserModal" });
         return user;
       } catch (err) {
-        console.log("userStore Error in loading", err);
         throw err;
       }
     },

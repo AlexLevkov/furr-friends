@@ -161,22 +161,31 @@
           });
       },
       login() {
-        console.log("login");
         const selectedUser = this.users.find(
           (user) => user.username === this.selectedUsername
         );
+        if (!selectedUser) {
+          this.message("Invalid User Name", "warning");
+          return;
+        }
         selectedUser.password = this.password;
         this.$store
           .dispatch({ type: "login", userCred: selectedUser })
           .then(() => {
             this.selectedUsername = null;
             this.password = "";
+            this.message(`Welcome ${selectedUser.fullname}`, "success");
+          })
+          .catch((error) => {
+            console.log("error:", error);
+            this.message("Failed to Login", "warning");
           });
       },
       loginGuest() {
         const selectedUser = {
           username: "Guest",
           password: "1234",
+          _id: "6444f0c5963c843d28d04240",
         };
         this.$store
           .dispatch({ type: "login", userCred: selectedUser })
@@ -207,6 +216,9 @@
       },
       showHint() {
         this.hint = !this.hint;
+      },
+      message(message, type) {
+        this.$message({ message, type });
       },
     },
   };

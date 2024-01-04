@@ -44,11 +44,17 @@ async function login(userCred) {
   // const user = users.find(user => user.username === userCred.username)
   // return _saveLocalUser(user)
   // console.log('userCred:', userCred)
-  const user = await httpService.post("auth/login", userCred);
-  console.log("user:", user);
+  try {
+    const user = await httpService.post("auth/login", userCred);
+    if (user) return _saveLocalUser(user);
+  } catch (err) {
+    console.log("err:", err);
+    throw err;
+  }
+
   // socketService.emit('login', user._id);
-  if (user) return _saveLocalUser(user);
 }
+
 async function logout() {
   // return Promise.resolve('User logged out')
   // socketService.emit('unset-user-socket');

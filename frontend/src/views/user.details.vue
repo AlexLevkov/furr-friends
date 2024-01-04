@@ -299,179 +299,179 @@
 </template>
 
 <script>
-import { userService } from "../service/user.service.js";
-import { petService } from "../service/pet.service.js";
-import petList from "../cmps/pet-list.vue";
-import { socketService } from "../service/socket.service.js";
-export default {
-  name: "user-details",
-  components: {
-    petList,
-  },
-  props: {},
-  mounted() {
-    console.log("user details cmp");
-    const { userId } = this.$route.params;
-    userService.getById(userId).then((user) => {
-      this.user = user;
-    });
-    this.petToAdd = petService.getEmptyPet();
-    socketService.on("update-orders", () => {
-      console.log("update-orders");
-      this.getOrders();
-    });
-  },
-  data() {
-    return {
-      user: null,
-      isAdopted: false,
-      isFormOpen: false,
-      petToAdd: null,
-      isReviewOpen: false,
-      reviewText: "",
-    };
-  },
-  computed: {
-    // FIX: this is for the dev
-    orders() {
-      return this.$store.getters.orders;
+  import { userService } from "../service/user.service.js";
+  import { petService } from "../service/pet.service.js";
+  import petList from "../cmps/pet-list.vue";
+  import { socketService } from "../service/socket.service.js";
+  export default {
+    name: "user-details",
+    components: {
+      petList,
     },
-    usersPets() {
-      return this.$store.getters.petsToShow.filter(
-        (pet) => pet.owner._id === this.user._id
-      );
-    },
-    isLoggedinUser() {
-      // is the loggedin user is page's user
-      return this.$store.getters.loggedinUser._id === this.user._id;
-    },
-    loggedinUser() {
-      return this.$store.getters.loggedinUser;
-    },
-    loggedinUserOrders() {
-      return this.$store.getters.orders.filter((order) => {
-        if (order._id) return order.orderBy._id === this.user._id; // BUG:
+    props: {},
+    mounted() {
+      console.log("user details cmp");
+      const { userId } = this.$route.params;
+      userService.getById(userId).then((user) => {
+        this.user = user;
       });
-    },
-    loggedinUserPending() {
-      return this.$store.getters.orders.filter((order) => {
-        if (order._id) return order.orderOwner._id === this.user._id;
-      });
-    },
-  },
-
-  methods: {
-    isOrderApproved(idx) {
-      console.log("idx:", idx);
-      // this.$store.getters.pet("getPet", { idx });
-      return true;
-    },
-    toggleForm() {
-      this.isFormOpen = !this.isFormOpen;
-    },
-    toggleReview() {
-      this.isReviewOpen = !this.isReviewOpen;
-    },
-    addPet() {
-      const petToAdd = JSON.parse(JSON.stringify(this.petToAdd));
-      petToAdd.owner = {
-        fullname: this.user.fullname,
-        _id: this.user._id,
-      };
-      this.$store.dispatch({ type: "savePet", petToAdd }).then(() => {
-        this.petToAdd = petService.getEmptyPet();
-        this.toggleForm();
-      });
-      // this.$store.commit({ type: "toggleUserModal" });
-    },
-    editPet(petToEdit) {
-      this.toggleForm();
-      this.petToAdd = petToEdit;
-    },
-    addReview() {
-      const review = {
-        byUser: this.$store.getters.loggedinUser.fullname,
-        text: this.reviewText,
-      };
-      this.$store
-        .dispatch({
-          type: "addReview",
-          review: review,
-          user: this.user,
-        })
-        .then(() => {
-          this.reviewText = "";
-          this.toggleReview();
-        });
-    },
-    removeOrder(orderId) {
-      const data = {
-        type: "update-orders",
-        action: "delete",
-      };
-      this.$store
-        .dispatch({ type: "removeOrder", orderId })
-        .then(socketService.emit("order-msg", data));
-    },
-    approveOrder(order) {
-      const orderToSave = { ...order, isApproved: true };
-      const data = {
-        type: "update-orders",
-        action: "approved",
-      };
-      this.$store
-        .dispatch({ type: "saveOrder", orderToSave })
-        .then(socketService.emit("order-msg", data));
-
-      // this.isAdopted = true; // FIX:
-      // const newOwner = order.orderBy;
-      // let petToAdd = order.orderFor;
-      // petToAdd.owner = newOwner;
-      // this.$store.dispatch({
-      //   type: "savePet",
-      //   petToAdd,
+      this.petToAdd = petService.getEmptyPet();
+      // socketService.on("update-orders", () => {
+      //   console.log("update-orders");
+      //   this.getOrders();
       // });
-      //   .then((pet) => {
-      //     // this.removeOrder(order._id);
-      //     socketService.emit("order approved", pet);
-      //   });
     },
-    goToPet(petId) {
-      this.$router.push({
-        name: "pet-details",
-        params: { petId },
-      });
+    data() {
+      return {
+        user: null,
+        isAdopted: false,
+        isFormOpen: false,
+        petToAdd: null,
+        isReviewOpen: false,
+        reviewText: "",
+      };
     },
-    // showUserDetails() {
-    // 	this.$router.push({
-    // 		name: "pet-details",
-    // 		params: { petId: this.pet._id },
-    // 	});
-    // },
-    goToUser(userId) {
-      this.$router.push(`/user/${userId}`);
-    },
-    closeModal() {
-      this.isFormOpen = !this.isFormOpen;
-      // this.$store.commit({ type: "toggleUserModal" });
-    },
-    getOrders() {
-      this.$store.dispatch({ type: "loadOrders" });
-    },
-    loadPets() {
-      this.$store.dispatch({ type: "loadPets" });
-    },
-  },
-
-  watch: {
-    "$route.params.userId": {
-      immediate: true,
-      handler() {
-        const { userId } = this.$route.params;
-        userService.getById(userId).then((user) => (this.user = user));
-        this.isAdopted = false;
+    computed: {
+      // FIX: this is for the dev
+      orders() {
+        return this.$store.getters.orders;
+      },
+      usersPets() {
+        return this.$store.getters.petsToShow.filter(
+          (pet) => pet.owner._id === this.user._id
+        );
+      },
+      isLoggedinUser() {
+        // is the loggedin user is page's user
+        return this.$store.getters.loggedinUser._id === this.user._id;
+      },
+      loggedinUser() {
+        return this.$store.getters.loggedinUser;
+      },
+      loggedinUserOrders() {
+        return this.$store.getters.orders.filter((order) => {
+          if (order._id) return order.orderBy._id === this.user._id; // BUG:
+        });
+      },
+      loggedinUserPending() {
+        return this.$store.getters.orders.filter((order) => {
+          if (order._id) return order.orderOwner._id === this.user._id;
+        });
       },
     },
-  },
-};
+
+    methods: {
+      isOrderApproved(idx) {
+        console.log("idx:", idx);
+        // this.$store.getters.pet("getPet", { idx });
+        return true;
+      },
+      toggleForm() {
+        this.isFormOpen = !this.isFormOpen;
+      },
+      toggleReview() {
+        this.isReviewOpen = !this.isReviewOpen;
+      },
+      addPet() {
+        const petToAdd = JSON.parse(JSON.stringify(this.petToAdd));
+        petToAdd.owner = {
+          fullname: this.user.fullname,
+          _id: this.user._id,
+        };
+        this.$store.dispatch({ type: "savePet", petToAdd }).then(() => {
+          this.petToAdd = petService.getEmptyPet();
+          this.toggleForm();
+        });
+        // this.$store.commit({ type: "toggleUserModal" });
+      },
+      editPet(petToEdit) {
+        this.toggleForm();
+        this.petToAdd = petToEdit;
+      },
+      addReview() {
+        const review = {
+          byUser: this.$store.getters.loggedinUser.fullname,
+          text: this.reviewText,
+        };
+        this.$store
+          .dispatch({
+            type: "addReview",
+            review: review,
+            user: this.user,
+          })
+          .then(() => {
+            this.reviewText = "";
+            this.toggleReview();
+          });
+      },
+      removeOrder(orderId) {
+        const data = {
+          type: "update-orders",
+          action: "delete",
+        };
+        this.$store
+          .dispatch({ type: "removeOrder", orderId })
+          // .then(socketService.emit("order-msg", data));
+      },
+      approveOrder(order) {
+        const orderToSave = { ...order, isApproved: true };
+        const data = {
+          type: "update-orders",
+          action: "approved",
+        };
+        this.$store
+          .dispatch({ type: "saveOrder", orderToSave })
+          // .then(socketService.emit("order-msg", data));
+
+        // this.isAdopted = true; // FIX:
+        // const newOwner = order.orderBy;
+        // let petToAdd = order.orderFor;
+        // petToAdd.owner = newOwner;
+        // this.$store.dispatch({
+        //   type: "savePet",
+        //   petToAdd,
+        // });
+        //   .then((pet) => {
+        //     // this.removeOrder(order._id);
+        //     socketService.emit("order approved", pet);
+        //   });
+      },
+      goToPet(petId) {
+        this.$router.push({
+          name: "pet-details",
+          params: { petId },
+        });
+      },
+      // showUserDetails() {
+      // 	this.$router.push({
+      // 		name: "pet-details",
+      // 		params: { petId: this.pet._id },
+      // 	});
+      // },
+      goToUser(userId) {
+        this.$router.push(`/user/${userId}`);
+      },
+      closeModal() {
+        this.isFormOpen = !this.isFormOpen;
+        // this.$store.commit({ type: "toggleUserModal" });
+      },
+      getOrders() {
+        this.$store.dispatch({ type: "loadOrders" });
+      },
+      loadPets() {
+        this.$store.dispatch({ type: "loadPets" });
+      },
+    },
+
+    watch: {
+      "$route.params.userId": {
+        immediate: true,
+        handler() {
+          const { userId } = this.$route.params;
+          userService.getById(userId).then((user) => (this.user = user));
+          this.isAdopted = false;
+        },
+      },
+    },
+  };
 </script>
