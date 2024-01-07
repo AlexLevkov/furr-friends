@@ -234,7 +234,6 @@
           this.$store // update store
             .dispatch({ type: "saveOrder", orderToSave })
             .then((savedOrder) => {
-              console.log("savedOrder:", savedOrder);
               // const petName = savedOrder.orderFor.name;
               const message =
                 savedOrder.msg || `Your adoption request has been sent`;
@@ -244,6 +243,12 @@
                 message,
                 type,
               });
+              setTimeout(() => {
+                this.$router.push({
+                  name: "user-details",
+                  params: { userId: this.loggedinUser._id },
+                });
+              }, 500);
               // update socket
               const data = {
                 type: "update-orders",

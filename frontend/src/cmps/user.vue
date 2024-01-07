@@ -150,15 +150,20 @@
           !this.newUser.username ||
           !this.newUser.fullname ||
           !this.newUser.password
-        )
+        ) {
+          this.message("Please Enter Valid Credentials", "warning");
           return;
+        }
         this.$store
           .dispatch({ type: "signup", userCred: this.newUser })
           .then(() => {
+            console.log("signup");
+            this.message(`Welcome ${this.newUser.fullname}`, "success");
             this.newUser.username = "";
             this.newUser.fullname = "";
             this.newUser.password = "";
-          });
+          })
+          .catch((err) => console.log(err));
       },
       login() {
         const selectedUser = this.users.find(
@@ -218,7 +223,7 @@
         this.hint = !this.hint;
       },
       message(message, type) {
-        this.$message({ message, type });
+        this.$message({ message, type, duration: 3500 });
       },
     },
   };

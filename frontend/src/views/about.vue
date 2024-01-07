@@ -5,11 +5,14 @@
       Thank you for visitng FurrFriends. 🐶👍 This conceptual app has been
       designed with love for animals and passion for code. The app is developed
       to ensure a smooth and enjoyable journey as you explore the various
-      features offered. The project was created using the following
-      technologies:
+      features offered. Find more projects
+      <a style="color: darkred" href="https://alexlevkov.com" target="_blank"
+        >here.</a
+      >
     </p>
-
     <div class="about-main">
+      <h1>Tech Stack</h1>
+
       <div class="tech-container">
         <div>
           <img
