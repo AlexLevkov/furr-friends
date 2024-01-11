@@ -1,5 +1,8 @@
 <template>
   <section class="user-main main-layout">
+
+
+
     <div
       v-if="!hint"
       :class="{
@@ -183,7 +186,7 @@
           })
           .catch((error) => {
             console.log("error:", error);
-            this.message("Failed to Login", "warning");
+            this.message("Failed to Login", "error");
           });
       },
       loginGuest() {
@@ -223,7 +226,7 @@
         this.hint = !this.hint;
       },
       message(message, type) {
-        this.$message({ message, type, duration: 3500 });
+        this.$message({ message, type, duration: 3500, showIcon: true });
       },
     },
   };
