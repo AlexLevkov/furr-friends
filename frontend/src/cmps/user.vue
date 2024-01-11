@@ -1,8 +1,5 @@
 <template>
   <section class="user-main main-layout">
-
-
-
     <div
       v-if="!hint"
       :class="{
@@ -160,7 +157,6 @@
         this.$store
           .dispatch({ type: "signup", userCred: this.newUser })
           .then(() => {
-            console.log("signup");
             this.message(`Welcome ${this.newUser.fullname}`, "success");
             this.newUser.username = "";
             this.newUser.fullname = "";

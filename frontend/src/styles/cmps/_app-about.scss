@@ -8,12 +8,8 @@
 }
 
 .tech-container {
-  // grid-template-columns: 1fr 1fr 1fr;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  row-gap: 10px;
-  // margin:20px auto;
-  // margin-top: ;
+  display: flex;
+  justify-content: space-between;
 }
 
 .charts-container {

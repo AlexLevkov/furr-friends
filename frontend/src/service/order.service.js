@@ -24,7 +24,6 @@ function getById(orderId) {
 }
 
 async function save(order) {
-  console.log("order:", order);
   if (order._id) {
     // return storageService.put('order', order)
     return (order = await httpService.put(`order`, order));

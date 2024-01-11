@@ -310,7 +310,6 @@
     },
     props: {},
     mounted() {
-      console.log("user details cmp");
       const { userId } = this.$route.params;
       userService.getById(userId).then((user) => {
         this.user = user;
@@ -409,9 +408,8 @@
           type: "update-orders",
           action: "delete",
         };
-        this.$store
-          .dispatch({ type: "removeOrder", orderId })
-          // .then(socketService.emit("order-msg", data));
+        this.$store.dispatch({ type: "removeOrder", orderId });
+        // .then(socketService.emit("order-msg", data));
       },
       approveOrder(order) {
         const orderToSave = { ...order, isApproved: true };
@@ -419,9 +417,8 @@
           type: "update-orders",
           action: "approved",
         };
-        this.$store
-          .dispatch({ type: "saveOrder", orderToSave })
-          // .then(socketService.emit("order-msg", data));
+        this.$store.dispatch({ type: "saveOrder", orderToSave });
+        // .then(socketService.emit("order-msg", data));
 
         // this.isAdopted = true; // FIX:
         // const newOwner = order.orderBy;

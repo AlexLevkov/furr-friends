@@ -22,13 +22,14 @@
   margin-top: 2%;
   display: flex;
   gap: 70%;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .close-modal-btn {
-  width: 40px;
+  width: 30px;
   height: 28px;
   margin-top: 0 !important;
+  margin-right: 5px;
   background-color: $clr5 !important;
   &:hover {
     background-color: $clr2 !important;
