@@ -8,7 +8,7 @@
       }"
     >
       <div class="login-btns">
-        <button @click.prevent="showHint" class="hint">
+        <button v-if="!loggedinUser" @click.prevent="showHint" class="hint">
           <img :src="require('@/assets/images/hint.gif')" />
         </button>
         <el-button

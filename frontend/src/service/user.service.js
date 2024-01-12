@@ -1,6 +1,6 @@
 import { storageService } from "./async-storage.service.js";
 import { httpService } from "./http.service.js";
-import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket.service";
+// import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket.service";
 
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser";
 

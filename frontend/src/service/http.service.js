@@ -4,8 +4,8 @@ import { router } from "@/router";
 const BASE_URL = //process.env.NODE_ENV === 'production'
   // ? '/api/' :
   // "http://localhost:3030/api/";
-  // "http://localhost:2000/api/";
-  "https://central-server-81cq.onrender.com/api/";
+  "http://localhost:2000/api/";
+// "https://central-server-81cq.onrender.com/api/";
 
 var axios = Axios.create({
   // withCredentials: true,

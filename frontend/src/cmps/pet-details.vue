@@ -198,7 +198,7 @@
         return `${this.pet.name} is a beautiful ${this.pet.type} looking for a new home.
       ${gender} is ${this.pet.age} years old, ${this.pet.color} colored and got ${this.pet.likes} likes on our site!
       Please see below more information about ${this.pet.name}.
-      If you wish to adopt ${this.pet.name}, you may contact the owner - ${this.pet.owner.fullname} by clicking the "Adopt Now" button below.
+      If you wish to adopt ${this.pet.name}, you may send an adoption request to ${this.pet.name}'s owner by clicking the "Adopt Now" button below.
       `;
       },
     },
@@ -253,7 +253,7 @@
               const data = {
                 type: "update-orders",
               };
-              // socketService.emit("order-msg", data);
+              socketService.emit("order-msg", data);
             })
             .catch((err) => {
               console.log("err:", err);

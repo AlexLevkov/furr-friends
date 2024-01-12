@@ -90,7 +90,7 @@
               type="success"
               round
             >
-              Visit {{ order.orderOwner.fullname }}'s Page
+              Visit Owner's Page
             </el-button>
           </div>
         </div>
@@ -315,10 +315,10 @@
         this.user = user;
       });
       this.petToAdd = petService.getEmptyPet();
-      // socketService.on("update-orders", () => {
-      //   console.log("update-orders");
-      //   this.getOrders();
-      // });
+      socketService.on("update-orders", () => {
+        // console.log("update-orders");
+        this.getOrders();
+      });
     },
     data() {
       return {
@@ -408,8 +408,9 @@
           type: "update-orders",
           action: "delete",
         };
-        this.$store.dispatch({ type: "removeOrder", orderId });
-        // .then(socketService.emit("order-msg", data));
+        this.$store
+          .dispatch({ type: "removeOrder", orderId })
+          .then(socketService.emit("order-msg", data));
       },
       approveOrder(order) {
         const orderToSave = { ...order, isApproved: true };
@@ -417,8 +418,9 @@
           type: "update-orders",
           action: "approved",
         };
-        this.$store.dispatch({ type: "saveOrder", orderToSave });
-        // .then(socketService.emit("order-msg", data));
+        this.$store
+          .dispatch({ type: "saveOrder", orderToSave })
+          .then(socketService.emit("order-msg", data));
 
         // this.isAdopted = true; // FIX:
         // const newOwner = order.orderBy;
