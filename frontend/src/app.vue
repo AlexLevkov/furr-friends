@@ -2,7 +2,9 @@
   <div id="app">
     <user v-show="isUserModal" class="user-modal"></user>
     <app-header></app-header>
-    <router-view />
+    <div class="min-height">
+      <router-view />
+    </div>
     <app-footer></app-footer>
   </div>
 </template>

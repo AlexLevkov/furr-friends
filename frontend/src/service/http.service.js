@@ -7,8 +7,8 @@ const BASE_URL = //process.env.NODE_ENV === 'production'
   // "http://localhost:2000/api/";
 "https://central-server-81cq.onrender.com/api/";
 
-var axios = Axios.create({
-  // withCredentials: true,
+const axios = Axios.create({
+  withCredentials: true,
 });
 
 export const httpService = {
