@@ -1,6 +1,7 @@
 import io from "socket.io-client";
 
-const baseUrl = "http://localhost:2000/ff";
+// const baseUrl = "http://localhost:2000/ff";
+const baseUrl = "https://central-server-81cq.onrender.com/ff";
 
 export const socketService = createSocketService();
 
