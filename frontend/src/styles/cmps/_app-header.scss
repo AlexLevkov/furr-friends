@@ -66,7 +66,7 @@
     height: 100%;
     text-align: center;
     line-height: 7vh;
-    font-size: 20px;
+    font-size: 22px;
   }
   button {
     font-size: 20px;
@@ -99,7 +99,7 @@
 .right-side-nav {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 22px;
 }
 
 .header-nav-humburger {
@@ -139,23 +139,11 @@
 
 @media screen and (max-width: 600px) {
   .right-side-nav {
-    display: none;
-    transform: scaleY(0);
-  }
-  .header-nav-humburger {
-    display: block;
-  }
-  .header-container {
-    height: 10vh;
-    a {
-      line-height: 10vh;
-    }
-  }
-  .right-side-nav-display {
-    transform: scaleY(1);
-    transform-origin: top;
-    transition: transform 0.3s ease-in-out;
-    overflow: hidden;
+    // transform: scaleY(1);
+    // transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+    // overflow: hidden;
+    transform: translateY(-150%);
 
     display: flex;
     flex-direction: column;
@@ -183,6 +171,19 @@
     .user-link {
       order: -1;
     }
+  }
+  .header-nav-humburger {
+    display: block;
+  }
+  .header-container {
+    height: 10vh;
+    a {
+      line-height: 10vh;
+    }
+  }
+
+  .right-side-nav-display {
+    transform: translateY(0%);
   }
   .nav-open {
     transform: scaleY(0);

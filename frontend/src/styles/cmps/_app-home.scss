@@ -32,12 +32,21 @@
   }
 
   .slogan {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
-    /* bottom: 5%; */
-    /* right: 5%; */
     color: whitesmoke;
     font-size: 5.5vw;
-    left: 18%;
-    top: 68%;
+    bottom: 0%;
+    right: unset;
+    h2 {
+      letter-spacing: 1px;
+      position: absolute;
+      bottom: 0%;
+      right: 0;
+      font-size: 25px;
+      padding: 5px;
+    }
   }
 }

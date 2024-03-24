@@ -33,6 +33,7 @@
         <el-option :label="'Parrot'" :value="'parrot'">Parrot</el-option>
       </el-select>
     </label>
+
     <label>
       Select Pet Male/Female:
       <el-select
@@ -45,6 +46,7 @@
         <el-option :label="'Female'" :value="'female'">Female</el-option>
       </el-select>
     </label>
+
     <label>
       Select Pet Size:
       <el-select
@@ -57,7 +59,15 @@
         <el-option :label="'Big'" :value="'big'">Big</el-option>
       </el-select>
     </label>
-    <label for="random">Find me a random pet:</label>
+
+    <!-- <label for=""> -->
+    <button class="clear-filter-btn" @click="clearFilters">
+      <i class="fa-solid fa-filter-circle-xmark"></i>Clear Filters
+    </button>
+
+    <!-- </label> -->
+
+    <label for="random">Find me a random pet: </label>
 
     <div class="hvr-icon-spin random-container">
       <img
@@ -79,22 +89,16 @@
       this.filter = JSON.parse(JSON.stringify(this.$store.getters.filterBy));
     },
     destroyed() {
-      this.filter = {
-        ownerId: "all",
-        type: "all",
-        gender: "all",
-        size: "all",
-      };
-      this.setFilter();
+      // this.clearFilters();
     },
     data() {
       return {
         filter: {
-          ownerId: "all",
-          type: "all",
-          gender: "all",
-          size: "all",
-          randomId: null,
+          // ownerId: "all",
+          // type: "all",
+          // gender: "all",
+          // size: "all",
+          // randomId: null,
         },
         filteredUserNames: ["ARC", "P2S", "A.SOS"],
       };
@@ -103,7 +107,6 @@
       users() {
         return this.$store.getters.users.filter((user) => {
           return this.filteredUserNames.includes(user.username);
-          //return user.username === "ARC";
         });
       },
     },
@@ -123,6 +126,15 @@
         const filterCopy = JSON.parse(JSON.stringify(this.filter));
         this.$store.commit({ type: "setFilterBy", filterCopy });
         this.filter.randomId = null;
+      },
+      clearFilters() {
+        this.filter = {
+          ownerId: "all",
+          type: "all",
+          gender: "all",
+          size: "all",
+        };
+        this.setFilter();
       },
     },
     watch: {

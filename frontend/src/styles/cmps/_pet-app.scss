@@ -4,6 +4,25 @@
   gap: 10px;
 }
 
+.clear-filter-btn {
+  margin-top: 5px;
+  margin-right: auto;
+  padding-inline: 10px;
+  font-size: 16px;
+  display: flex;
+  color: #68696d;
+  gap: 10px;
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+  align-items: center;
+  border: 1px solid #dcdfe6;
+  border-radius: 5px;
+  &:hover {
+    border: 1px solid rgb(186, 185, 185);
+  }
+}
+
 .random-container {
   width: 90px;
 }

@@ -66,7 +66,13 @@
         </div>
       </nav>
       <button @click.stop="toggleNav" class="header-nav-humburger">
-        <i style="font-size: 1.5rem" class="fa-solid fa-bars"></i>
+        <i
+          style="font-size: 1.5rem"
+          :class="{
+            'fa-solid fa-bars': !isNavOpen,
+            'fa-solid fa-xmark': isNavOpen,
+          }"
+        ></i>
       </button>
     </div>
   </section>
