@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   height: 7vh;
+  min-height: 40px;
   align-items: center;
   color: $clr1;
   font-family: "Noto Serif", serif;
@@ -60,12 +61,15 @@
 
   nav {
     height: 100%;
+    display: flex;
+    align-items: center;
   }
   a {
-    display: inline-block;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    // height: 100%;
     text-align: center;
-    line-height: 7vh;
+    // line-height: 7vh;
     font-size: 22px;
   }
   button {
@@ -100,6 +104,7 @@
   display: flex;
   align-items: center;
   gap: 22px;
+  height: 100%;
 }
 
 .header-nav-humburger {
@@ -111,6 +116,7 @@
 .header-nav-wide {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .user-icon::before {
@@ -141,9 +147,9 @@
   .right-side-nav {
     // transform: scaleY(1);
     // transform-origin: top;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.7s ease-in-out;
     // overflow: hidden;
-    transform: translateY(-150%);
+    transform: translateX(150%);
 
     display: flex;
     flex-direction: column;
@@ -183,7 +189,7 @@
   }
 
   .right-side-nav-display {
-    transform: translateY(0%);
+    transform: translateX(0%);
   }
   .nav-open {
     transform: scaleY(0);

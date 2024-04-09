@@ -3,7 +3,7 @@
     <div class="hero full">
       <div class="slogan">
         <h2>
-          Adoption makes at least
+          <span>Adoption makes at least</span>
           <br />
           <span> two lives happier </span>
         </h2>
@@ -16,24 +16,24 @@
 </template>
 
 <script>
-import petApp from "./pet-app.vue";
-import petList from "../cmps/pet-list.vue";
-export default {
-  name: "app-home",
-  components: {
-    petApp,
-    petList,
-  },
-  props: {},
-  created() {},
-  data() {
-    return {};
-  },
-  computed: {
-    sortedByLikes() {
-      return this.$store.getters.sortedByLikes;
+  import petApp from "./pet-app.vue";
+  import petList from "../cmps/pet-list.vue";
+  export default {
+    name: "app-home",
+    components: {
+      petApp,
+      petList,
     },
-  },
-  methods: {},
-};
+    props: {},
+    created() {},
+    data() {
+      return {};
+    },
+    computed: {
+      sortedByLikes() {
+        return this.$store.getters.sortedByLikes;
+      },
+    },
+    methods: {},
+  };
 </script>

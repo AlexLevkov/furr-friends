@@ -1,27 +1,31 @@
 <template>
   <section class="user-main main-layout">
     <div
-      v-if="!hint"
       :class="{
         'user-form-container': true,
         'loggedin-modal': loggedinUser,
       }"
     >
-      <div class="login-btns">
-        <button v-if="!loggedinUser" @click.prevent="showHint" class="hint">
-          <img :src="require('@/assets/images/hint.gif')" />
+      <nav class="login-btns" v-if="!loggedinUser">
+        <button @click="navLogin(true)">
+          <h2>Login</h2>
         </button>
-        <el-button
-          class="close-modal-btn"
-          @click="closeModal()"
-          type="info"
-          circle
-          >X</el-button
-        >
-      </div>
+        <span>|</span>
+        <button @click="navLogin(false)">
+          <h2>Signup</h2>
+        </button>
 
-      <form class="login-form" @submit.prevent="login()" v-if="!loggedinUser">
-        <h2 class="flex center">Please Login</h2>
+        <button @click="closeModal()" class="close-modal-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </nav>
+
+      <form
+        class="login-form"
+        @submit.prevent="login()"
+        v-if="!loggedinUser && isLoginMenu"
+      >
+        <!-- <h2 class="flex center">Please Login</h2> -->
 
         <el-input
           required
@@ -40,10 +44,21 @@
         <el-button class="user-login-btn" @click="login()" type="success" round
           >Login</el-button
         >
+        <h3>For Demo Login:</h3>
+        <el-button
+          class="user-login-btn"
+          type="success"
+          @click="loginGuest()"
+          round
+          >Continue</el-button
+        >
       </form>
 
-      <form class="signup-form" @submit.prevent="signup()" v-if="!loggedinUser">
-        <h2>Or Signup</h2>
+      <form
+        class="signup-form"
+        @submit.prevent="signup()"
+        v-if="!loggedinUser && !isLoginMenu"
+      >
         <el-input
           required
           placeholder="Full name"
@@ -84,33 +99,6 @@
           >Logout</el-button
         >
       </div>
-
-      <div v-if="hint"></div>
-    </div>
-
-    <div v-if="hint" class="user-form-container loggedin-modal">
-      <div class="login-btns">
-        <button @click.prevent="showHint" class="hint">
-          <img :src="require('@/assets/images/hint.gif')" />
-        </button>
-        <el-button
-          class="close-modal-btn"
-          @click="closeModal()"
-          type="info"
-          circle
-          >X</el-button
-        >
-      </div>
-      <h2>Dear Guest</h2>
-      <p class="hint-p">Welcome to the app's testing area</p>
-      <p class="hint-p">Click below to continue as a guest.</p>
-      <el-button
-        class="user-login-btn"
-        type="success"
-        @click="loginGuest()"
-        round
-        >Continue</el-button
-      >
     </div>
   </section>
 </template>
@@ -133,7 +121,7 @@
         },
         selectedUsername: null,
         password: "",
-        hint: false,
+        isLoginMenu: true,
       };
     },
     computed: {
@@ -145,6 +133,9 @@
       },
     },
     methods: {
+      navLogin(value) {
+        this.isLoginMenu = value;
+      },
       signup() {
         if (
           !this.newUser.username ||
@@ -218,9 +209,7 @@
           params: { userId: this.loggedinUser._id },
         });
       },
-      showHint() {
-        this.hint = !this.hint;
-      },
+
       message(message, type) {
         this.$message({ message, type, duration: 3500, showIcon: true });
       },

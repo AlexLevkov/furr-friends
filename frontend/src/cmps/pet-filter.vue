@@ -67,16 +67,16 @@
 
     <!-- </label> -->
 
-    <label for="random">Find me a random pet: </label>
-
-    <div class="hvr-icon-spin random-container">
-      <img
-        id="random"
-        @click="randomPet"
-        :src="require(`@/assets/images/random.svg`)"
-        class="random-img hvr-icon"
-      />
-    </div>
+    <label for="random"
+      >Find me a random pet:
+      <div class="hvr-icon-spin random-container">
+        <button id="random" @click="randomPet">
+          <img
+            :src="require(`@/assets/images/random.svg`)"
+            class="random-img hvr-icon"
+          />
+        </button></div
+    ></label>
   </section>
 </template>
 
