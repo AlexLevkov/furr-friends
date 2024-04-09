@@ -21,7 +21,7 @@
           <router-link
             class="router-link hvr-underline-from-center white-underline"
             @click.native="toggleNav"
-            to="/pet"
+            to="/search"
             ><span class="search-icon">Search</span>
           </router-link>
           <router-link

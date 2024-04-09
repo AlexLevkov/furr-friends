@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import petApp from "./pet-app.vue";
+  import petApp from "./search.vue";
   import petList from "../cmps/pet-list.vue";
   export default {
     name: "app-home",

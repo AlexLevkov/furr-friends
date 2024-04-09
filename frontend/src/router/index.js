@@ -1,44 +1,43 @@
-import Vue from 'vue'
-import vueRouter from 'vue-router'
-import home from '../views/home.vue'
-import about from '../views/about.vue'
-import petApp from '../views/pet-app.vue'
-import petDetails from '../cmps/pet-details.vue'
-import userDetails from '../views/user.details.vue'
+import Vue from "vue";
+import vueRouter from "vue-router";
+import home from "../views/home.vue";
+import about from "../views/about.vue";
+import search from "../views/search.vue";
+import petDetails from "../cmps/pet-details.vue";
+import userDetails from "../views/user.details.vue";
 
-Vue.use(vueRouter)
+Vue.use(vueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: home
+    path: "/",
+    name: "home",
+    component: home,
   },
   {
-    path: '/about',
-    name: 'about',
-    component: about
+    path: "/about",
+    name: "about",
+    component: about,
   },
   {
-    path: '/pet',
-    name: 'pet-app',
-    component: petApp
+    path: "/search",
+    name: "search",
+    component: search,
   },
   {
-    path: '/user/:userId',
-    name: 'user-details',
-    component: userDetails
+    path: "/user/:userId",
+    name: "user-details",
+    component: userDetails,
   },
   {
-    path: '/pet/:petId',
-    name: 'pet-details',
-    component: petDetails
+    path: "/pet/:petId",
+    name: "pet-details",
+    component: petDetails,
   },
-
-]
+];
 
 const router = new vueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
