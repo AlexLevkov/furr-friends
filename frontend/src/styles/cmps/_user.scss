@@ -100,6 +100,10 @@
   margin-top: 15px;
 }
 
+.active-login-navlink h2 {
+  border-bottom: 1.5px solid black;
+}
+
 @media screen and (max-width: 600px) {
   .user-form-container {
     width: 60vw;

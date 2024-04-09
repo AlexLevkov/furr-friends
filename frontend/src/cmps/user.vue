@@ -7,11 +7,11 @@
       }"
     >
       <nav class="login-btns" v-if="!loggedinUser">
-        <button @click="navLogin(true)">
+        <button @click="navLogin(true)" :class="{'active-login-navlink': isLoginMenu}">
           <h2>Login</h2>
         </button>
         <span>|</span>
-        <button @click="navLogin(false)">
+        <button @click="navLogin(false)" :class="{'active-login-navlink': !isLoginMenu}">
           <h2>Signup</h2>
         </button>
 
