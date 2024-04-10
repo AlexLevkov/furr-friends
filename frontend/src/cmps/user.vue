@@ -30,8 +30,6 @@
         @submit.prevent="login()"
         v-if="!loggedinUser && isLoginMenu"
       >
-        <!-- <h2 class="flex center">Please Login</h2> -->
-
         <el-input
           required
           placeholder="User Name"
@@ -39,7 +37,6 @@
           clearable
         >
         </el-input>
-
         <el-input
           required
           placeholder="Password"
@@ -47,16 +44,8 @@
           show-password
         ></el-input>
         <el-button class="user-login-btn" @click="login()" type="success" round
-          >Login</el-button
-        >
-        <h3>For Demo Login:</h3>
-        <el-button
-          class="user-login-btn"
-          type="success"
-          @click="loginGuest()"
-          round
-          >Continue</el-button
-        >
+          >Login
+        </el-button>
       </form>
 
       <form
@@ -124,8 +113,8 @@
           password: "",
           isAdmin: false,
         },
-        selectedUsername: null,
-        password: "",
+        selectedUsername: "Guest",
+        password: "1234",
         isLoginMenu: true,
       };
     },
@@ -157,6 +146,7 @@
             this.newUser.username = "";
             this.newUser.fullname = "";
             this.newUser.password = "";
+            this.$store.dispatch({ type: "loadUsers" });
           })
           .catch((err) => console.log(err));
       },
@@ -172,8 +162,8 @@
         this.$store
           .dispatch({ type: "login", userCred: selectedUser })
           .then(() => {
-            this.selectedUsername = null;
-            this.password = "";
+            this.selectedUsername = "Guest";
+            this.password = "1234";
             this.message(`Welcome ${selectedUser.fullname}`, "success");
           })
           .catch((error) => {
@@ -199,8 +189,8 @@
       closeModal() {
         this.$store.commit({ type: "toggleUserModal" });
         // login
-        this.selectedUsername = null;
-        this.password = "";
+        this.selectedUsername = "Guest";
+        this.password = "1234";
         // signup
         this.newUser.fullname = "";
         this.newUser.username = "";
