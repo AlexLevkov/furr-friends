@@ -1,9 +1,10 @@
 import Axios from "axios";
 import { router } from "@/router";
 
-const BASE_URL = "http://localhost:2000/api/";
-// const BASE_URL = "https://central-server-81cq.onrender.com/api/";
-// const BASE_URL = "https://central-server.alexlevkov.com/api/";
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://central-server.alexlevkov.com/api/"
+    : "http://localhost:2000/api/";
 
 const axios = Axios.create({
   withCredentials: true,

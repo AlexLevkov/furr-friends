@@ -1,8 +1,9 @@
 import io from "socket.io-client";
 
-const baseUrl = "http://localhost:2000/ff";
-// const baseUrl = "https://central-server-81cq.onrender.com/ff";
-// const baseUrl = "https://central-server.alexlevkov.com/ff";
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://central-server.alexlevkov.com/ff"
+    : "http://localhost:2000";
 
 export const socketService = createSocketService();
 
@@ -12,7 +13,7 @@ function createSocketService() {
   let socket = null;
   const socketService = {
     async setup() {
-      socket = io(baseUrl);
+      socket = io(BASE_URL);
     },
     on(eventName, cb) {
       socket.on(eventName, cb);
