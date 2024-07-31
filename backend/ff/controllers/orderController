@@ -1,0 +1,60 @@
+const Order = require("../models/orderModel.js");
+
+const getOrders = async (req, res) => {
+  // console.log("get orders");
+  // console.log("req.session:", req.session);
+  try {
+    const orders = await Order.find({});
+    if (!orders) {
+      console.log("No orders found");
+      res.json("No orders found");
+    }
+    // console.log("orders:", orders);
+    res.send(orders);
+  } catch (err) {
+    console.log("err");
+  }
+};
+
+const getOrder = async () => {
+  console.log("getOrder");
+};
+
+const addOrder = async (req, res) => {
+  console.log("addOrder");
+  const order = await Order.create({
+    created: req.body.created,
+    orderBy: req.body.orderBy,
+    orderFor: req.body.orderFor,
+    orderOwner: req.body.orderOwner,
+  });
+  // console.log("order:", order);
+  res.send(order);
+};
+
+const removeOrder = async (req, res) => {
+  console.log("removeOrder");
+  // console.log("req.params.id:", req.params.id);
+  try {
+    await Order.deleteOne({ _id: req.params.id });
+    console.log("deleteOne");
+    res.json({ msg: "Order deleted" });
+  } catch (err) {
+    console.log("err:", err);
+  }
+};
+
+const updateOrder = async (req, res) => {
+  console.log("updateOrder");
+  const id = req.body._id;
+  // console.log("req.body:", req.body);
+  try {
+    const order = await Order.findByIdAndUpdate(id, req.body);
+    console.log("order:", order);
+    res.send(order);
+  } catch (err) {
+    console.log("err:", err);
+  }
+};
+
+module.exports = { getOrder, addOrder, getOrders, removeOrder, updateOrder };
