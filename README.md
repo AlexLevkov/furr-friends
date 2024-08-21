@@ -1,4 +1,4 @@
-# CodeSync
+# FurrFriends
 
 FurrFriends is a pet adoption app that connects caregivers with rescue shelters. It features a user-friendly search engine, an extensive animal database, and a fun pet discovery feature.
 
