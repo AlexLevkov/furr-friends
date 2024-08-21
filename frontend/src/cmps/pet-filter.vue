@@ -54,7 +54,7 @@
     </button>
 
     <div class="hvr-icon-spin random-container" @click="randomPet">
-      <span> Find me a random pet:</span>
+      <span> Find a random pet</span>
       <img
         :src="require(`@/assets/images/random.svg`)"
         class="random-img hvr-icon"

@@ -29,13 +29,18 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
   font-size: 14px;
   flex-wrap: wrap;
   padding: 5px 10px 5px 10px;
   color: rgb(96, 98, 102);
   border: 1px solid #dcdfe6;
   border-radius: 5px;
+  span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
   &:hover {
     cursor: pointer;
     border: 1px solid rgb(186, 185, 185);
