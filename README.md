@@ -26,13 +26,13 @@ Try the app by clicking <strong>[here](https://furrfriends.alexlevkov.com/)</str
 
 ## ⭐ Features
 
--Adoption Request Management (CRUD): Easily create, update, delete, and view adoption requests
--Advanced Search Engine: Quickly find pets that match your criteria
--Random Pet Finder: Discover a randomly selected pet with just one click
--User Dashboard: Access your personalized dashboard for managing your activities and settings
--Pet Profile Pages: View detailed profiles for each pet, including images, descriptions, and more
--Social Sharing: Share pet profiles directly on Facebook to help spread the word
--Responsive Design: Fully optimized for both mobile and desktop devices
+- Adoption Request Management (CRUD): Easily create, update, delete, and view adoption requests
+- Advanced Search Engine: Quickly find pets that match your criteria
+- Random Pet Finder: Discover a randomly selected pet with just one click
+- User Dashboard: Access your personalized dashboard for managing your activities and settings
+- Pet Profile Pages: View detailed profiles for each pet, including images, descriptions, and more
+- Social Sharing: Share pet profiles directly on Facebook to help spread the word
+- Responsive Design: Fully optimized for both mobile and desktop devices
 
 ## ⚙️ Installation
 
@@ -88,12 +88,6 @@ Try the app by clicking <strong>[here](https://furrfriends.alexlevkov.com/)</str
 - Node.js
 - Express
 - MongoDB
-
-## 🖥️ Architecture
-
-<img src="https://raw.githubusercontent.com/AlexLevkov/code-sync/main/docs/Diagram.png" />
-
-## 📃 License
 
 MIT License
 
